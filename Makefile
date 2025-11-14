@@ -1,8 +1,8 @@
 build:
-	docker build -t pepitoimg:1.0.2 .
+	docker build -t manchasimg:2.0.1 .
 
 deploy:
-	docker stack deploy --with-registry-auth -c stack.yml ecuador
+	docker stack deploy --with-registry-auth -c stack.yml manchas
 
 rm:
-	docker stack rm ecuador
+	docker stack rm manchas
