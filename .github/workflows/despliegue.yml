@@ -36,7 +36,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ghcr.io/byronmoreno/finalquintoc:3.0.0
+        tags: ghcr.io/alexisoon/deploy:3.0.0
 
     - name: 🧾 Mostrar variables básicas (solo locales, no secretos)
       run: |
@@ -79,8 +79,8 @@ jobs:
           cd ~/deploy1
 
           echo "Descargando la imagen desde GIT"
-          echo "${{ secrets.GHCR_PATH }}" | docker login ghcr.io -u byronmoreno --password-stdin
-          docker pull ghcr.io/byronmoreno/finalquintoc:3.0.0
+          echo "${{ secrets.GHCR_PATH }}" | docker login ghcr.io -u alexisoon --password-stdin
+          docker pull ghcr.io/alexisoon/deploy:3.0.0
 
           echo "Deteniendo los servicios (stack)"
           docker stack rm byron  || true
