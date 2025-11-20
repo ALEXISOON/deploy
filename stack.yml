@@ -10,13 +10,13 @@ services:
         - 'traefik.http.routers.alex.entrypoints=http'
         - 'traefik.http.routers.alex.rule=Host(`alex.byronrm.com`)'
         - 'traefik.http.middlewares.alex-https-redirect.redirectscheme.scheme=https'
-        - 'traefik.http.routers..middlewares=alex-https-redirect'
+        - 'traefik.http.routers.alex.middlewares=alex-https-redirect'
         - 'traefik.http.routers.alex-secure.entrypoints=https'
         - 'traefik.http.routers.alex-secure.rule=Host(`alex.byronrm.com`)'
         - 'traefik.http.routers.alex-secure.tls=true'
         - 'traefik.http.routers.alex-secure.tls.certresolver=http'
         - 'traefik.http.routers.alex-secure.service=alex'
-        - 'traefik.http.services.alex.loadbalancer.server.port=1001'
+        - 'traefik.http.services.alex.loadbalancer.server.port=80' # <-- Cambiar al puerto real del contenedor
         - 'traefik.docker.network=traefik-public'
     networks:
       - traefik-public
